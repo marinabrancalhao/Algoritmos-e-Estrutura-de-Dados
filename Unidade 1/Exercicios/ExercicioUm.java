@@ -5,9 +5,9 @@ Imagine que você está desenvolvendo um sistema de reservas para um hotel.
 Comece declarando variáveis que armazenem o número do quarto (número inteiro), o valor da diária (número com ponto flutuante) e o nome do hóspede (string). 
 Atribua valores de exemplo a essas variáveis e exiba-os na tela. */
 
-int numeroQuarto;
-float valorDiaria;
-String nomeHospede;
+private int numeroQuarto;
+private float valorDiaria;
+private String nomeHospede;
 
 public ExercicioUm(int numeroQuarto, float valorDiaria, String nomeHospede){
     this.numeroQuarto = numeroQuarto;
