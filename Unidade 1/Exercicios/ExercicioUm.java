@@ -17,7 +17,7 @@ public ExercicioUm(int numeroQuarto, float valorDiaria, String nomeHospede){
 
 public void exibirInfo(){
     System.out.println("Número do quarto: " + numeroQuarto);
-    System.out.println("Valor da diária: R$" + valorDiaria);
+    System.out.printf("Valor da diária: R$%.2f%n", valorDiaria);
     System.out.println("Nome do hóspede: " + nomeHospede);
 }
 
