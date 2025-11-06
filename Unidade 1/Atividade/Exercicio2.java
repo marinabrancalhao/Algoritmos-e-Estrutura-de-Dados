@@ -16,9 +16,9 @@ public class Exercicio2 {
         int codigoProduto = scanner.nextInt();
 
         if (codigoProduto % 2 == 0) {
-            System.out.println("O código é um número par."); 
+            System.out.println("O código é um número par"); 
         } else{
-            System.out.println("O código é um número ímpar.");
+            System.out.println("O código é um número ímpar");
         }
 
         scanner.close();
