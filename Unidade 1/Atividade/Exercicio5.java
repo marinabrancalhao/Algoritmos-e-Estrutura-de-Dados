@@ -9,7 +9,7 @@ public class Exercicio5 {
 
     public static void main(String[] args) {
     
-        float[] notas = {8.5f, 9, 6.5f, 9.5f, 7.5f, };
+        float[] notas = {8.5f, 9, 7.5f, 9.5f, 6.5f, };
         float maiorNota = 0.0f;  
 
         for(int i = 0; i < notas.length; i++ ){
