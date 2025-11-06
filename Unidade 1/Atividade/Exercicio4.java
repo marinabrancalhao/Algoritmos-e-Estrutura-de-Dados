@@ -27,7 +27,7 @@ public class Exercicio4 {
         scanner.nextLine();
 
         if (opcaoDesejada == 1) {
-            System.out.print("Digite o nome do(a) cliente: ");
+            System.out.print("Digite o nome do cliente: ");
             String cliente = scanner.nextLine();
             
             listaDeEspera.add(cliente);
