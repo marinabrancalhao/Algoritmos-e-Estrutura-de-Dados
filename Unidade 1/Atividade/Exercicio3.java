@@ -8,7 +8,7 @@ Crie um programa que imprima os números de 1 a 10, simulando a contagem de clie
 public class Exercicio3 {
     public static void main(String[] args) {
         for(int i = 1; i <= 10; i++) {
-            System.out.println("Cliente número " + i);
+            System.out.println("Cliente nº " + i);
         }
     }
 }
