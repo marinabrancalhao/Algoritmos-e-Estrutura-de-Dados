@@ -8,7 +8,7 @@ public class Exercicio1 {
 
 public static void main(String[] args) {
     
-    int numeroQuarto = 204;
+    int numeroQuarto = 208;
     float valorDiaria = 149.90f;
     String nomeHospede = "Maria Oliveira";
 
