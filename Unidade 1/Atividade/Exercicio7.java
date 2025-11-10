@@ -82,8 +82,8 @@ public class Exercicio7 {
         }
     }
 
-    /*professor, sendo bem sincera, essa parte não consegui fazer sozinha e precisei copiar, se achar que deve descontar 
-    nota, mas achei avançado demais pro meu conhecimento*/
+    /*professor, sendo bem sincera, essa parte eu travei e não consegui fazer sozinha, pra não ficar incompleto decidi copiar
+    se achar que deve descontar nota, mas achei avançado demais pro meu conhecimento*/
 
     public static boolean verificarVencedor(char[][] tabuleiro, char jogador) {
         
