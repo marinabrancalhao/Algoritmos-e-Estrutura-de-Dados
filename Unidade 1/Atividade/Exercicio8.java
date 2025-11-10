@@ -44,11 +44,7 @@ public class Exercicio8 {
 
         System.out.println("O item " + itemMaisFrequente + " foi o mais pedido: " + contagemMaisAlta + " vezes.");
 
-
+        scanner.close();
             
-        }
     }
-
-
-
-    
+}
