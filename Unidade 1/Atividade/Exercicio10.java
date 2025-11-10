@@ -35,6 +35,14 @@ public class Exercicio10 {
             return nome;
         }
 
+        public int getQuantidadeEstoque() {
+            return quantidadeEstoque;
+        }
+
+        public void setQuantidadeEstoque(int novaQuantidade) {
+            this.quantidadeEstoque = novaQuantidade;
+        }
+
         public void exibirNomeEId(){
             System.out.println("ID #" + this.id + " | Produto: " + this.nome);
         }
@@ -86,26 +94,154 @@ public class Exercicio10 {
 
                     System.out.print("Quantidade deste produto em estoque: ");
                     int quantidadeEstoque = scanner.nextInt();
+                    scanner.nextLine();
 
                     Produto novoProduto = new Produto(id, nome, categoria, preco, quantidadeEstoque);
                     
                     produtos.add(novoProduto);
 
-                    System.out.println("\nO produto " + nome + " foi adicionado com sucesso!\n");
+                    System.out.println("\nO produto '" + nome + "' foi adicionado com sucesso!\n");
 
                     break;
 
                 case 2:
+
+                    if (produtos.isEmpty()) {
+                        System.out.println("\nEstoque vazio... não há nada para remover.\n");
+                        break;
+                    }
+                    
+                    System.out.println("\n--- Produtos em Estoque ---)");
+                    for (Produto produto : produtos) {
+                        produto.exibirNomeEId();
+                        System.out.println("--------------------------------------------------------------------");
+                        
+                    }
+
+                    System.out.print("Digite o ID do produto que deseja remover: #");
+                    int idRemover = scanner.nextInt();
+                    scanner.nextLine();
+
+                    Produto produtoRemover = null;
+
+                    for (Produto produto : produtos) {
+                        if (produto.getId() == idRemover) {
+                            produtoRemover = produto;
+                            break;
+                        }
+                    }
+
+                    if (produtoRemover != null) {
+                        produtos.remove(produtoRemover);
+                        System.out.println("\nProduto '" + produtoRemover.getNome() + "' removido com sucesso!\n");
+                    } else {
+                     System.out.println("\nID #" + idRemover + " não encontrado.\n");       
+                    }
+
                     break;
+                
                 case 3:
+
+                    if (produtos.isEmpty()) {
+                    System.out.println("\nEstoque vazio... Adicione um produto primeiro.\n");
                     break;
-                case 4:
-                    break;   
-                case 5:
+                    }
+
                     System.out.println("\n--- Produtos em Estoque ---");
                     for (Produto produto : produtos) {
                         System.out.println(produto);
-                        System.out.println("--------------------------------------------------"); 
+                        System.out.println("--------------------------------------------------------------------");
+                        
+                    }
+
+                    System.out.print("Digite o ID do produto que deseja dar entrada no estoque: #");
+                    int idEntrada = scanner.nextInt();
+                    scanner.nextLine();
+
+                    Produto produtoEntrada =  null;
+                    for (Produto produto : produtos) {
+                        if (produto.getId() == idEntrada) {
+                            produtoEntrada = produto;
+                            break;
+                        }
+                    }
+
+                    if (produtoEntrada != null) {
+                        System.out.println("Produto selecionado: " + produtoEntrada.getNome());
+                        System.out.print("Digite a quantidade que deseja adicionar: ");
+                        int quantidadeEntrada = scanner.nextInt();
+                        scanner.nextLine();
+
+                        int estoqueAtual = produtoEntrada.getQuantidadeEstoque();
+                        int novoEstoque = estoqueAtual + quantidadeEntrada;
+                        produtoEntrada.setQuantidadeEstoque(novoEstoque);
+
+                        System.out.println("\nEstoque atualizado! Novo total: " + novoEstoque + " unidades.\n");
+                    } else {
+                        System.out.println("\nID #" + idEntrada + " não encontrado.\n");
+                    }
+                    
+                    break;
+
+                case 4:
+                    
+                    if (produtos.isEmpty()) {
+                    System.out.println("\nEstoque vazio... Adicione um produto primeiro.\n");
+                    break;
+                    }
+
+                    System.out.println("\n--- Produtos em Estoque ---");
+                    for (Produto produto : produtos) {
+                    System.out.println(produto);
+                    System.out.println("--------------------------------------------------------------------");
+                    }
+
+                    System.out.print("Digite o ID do produto que deseja dar saída do estoque: #");
+                    int idSaida = scanner.nextInt();
+                    scanner.nextLine();
+
+                    Produto produtoSaida = null;
+                    for (Produto produto : produtos) {
+                        if (produto.getId() == idSaida) {
+                        produtoSaida = produto;
+                        break;
+                }
+            }
+
+            if (produtoSaida != null) {
+                System.out.println("Produto selecionado: " + produtoSaida.getNome());
+                
+                int estoqueAtual = produtoSaida.getQuantidadeEstoque();
+
+                System.out.print("Digite a quantidade que deseja dar saída: ");
+                int quantidadeSaida = scanner.nextInt();
+                scanner.nextLine();
+
+                if (quantidadeSaida > estoqueAtual) {
+                    System.out.println("\nErro: Não é possível remover " + quantidadeSaida + " unidades.");
+                    System.out.println("Você só tem " + estoqueAtual + " em estoque.\n");
+                } else {
+                    int novoEstoque = estoqueAtual - quantidadeSaida;
+                    produtoSaida.setQuantidadeEstoque(novoEstoque);
+                    System.out.println("\nEstoque atualizado! Novo total: " + novoEstoque + " unidades.\n");
+                }
+
+            } else {
+                System.out.println("\nID #" + idSaida + " não encontrado.\n");
+            }
+            break;
+
+                case 5:
+
+                    if (produtos.isEmpty()) {
+                    System.out.println("\nEstoque vazio... Adicione um produto primeiro.\n");
+                    break;
+                    }
+
+                    System.out.println("\n--- Produtos em Estoque ---");
+                    for (Produto produto : produtos) {
+                        System.out.println(produto);
+                        System.out.println("--------------------------------------------------------------------"); 
                     }
                     break;
 
