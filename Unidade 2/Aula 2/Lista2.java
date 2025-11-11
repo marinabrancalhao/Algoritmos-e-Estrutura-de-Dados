@@ -32,7 +32,7 @@ public class Lista2 {
             System.out.println(item);
         }
 
-        //assim imprime item não encontrado a cada volts
+        //assim imprime item não encontrado a cada volta
         /*for (String item : ListaLanche) {
             System.out.println(item);
             if (item == "Alface") {
@@ -54,7 +54,7 @@ public class Lista2 {
         if (existe) {
             System.out.println("Item encontrado");
         } else{
-           System.out.println("Item encontrado"); 
+           System.out.println("Item não encontrado"); 
         }
 
 
