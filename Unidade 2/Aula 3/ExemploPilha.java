@@ -23,7 +23,7 @@ public class ExemploPilha {
         System.out.println(pilha.pop()); 
         System.out.println(pilha);
 
-        //desempiljando a pilha item a item
+        //desempilhando a pilha item a item
         while (!pilha.isEmpty()) { //só funciona o laço enquanto é true
             System.out.println(pilha.pop());   
         }
