@@ -5,7 +5,7 @@ Imagine que você é responsável por registrar quantos clientes entram na loja 
 Crie um programa que imprima os números de 1 a 10, simulando a contagem de clientes ao longo de uma hora.
 */
 
-public class Exercicio3 {
+public class Exercicio03 {
     public static void main(String[] args) {
         for(int i = 1; i <= 10; i++) {
             System.out.println("Cliente nº " + i);
