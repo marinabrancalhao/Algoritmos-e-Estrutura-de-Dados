@@ -5,7 +5,7 @@ Você é responsável por calcular o desempenho dos alunos em uma avaliação.
 Crie uma matriz (array) com as notas dos alunos em uma prova e encontre a maior nota da turma, exibindo-a ao final.
 */
 
-public class Exercicio5 {
+public class Exercicio05 {
 
     public static void main(String[] args) {
     
