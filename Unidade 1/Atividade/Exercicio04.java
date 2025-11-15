@@ -8,7 +8,7 @@ A cada alteração, exiba a lista atualizada para que os funcionários saibam qu
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Exercicio4 {
+public class Exercicio04 {
 
     public static void main(String[] args) {
         ArrayList<String> listaDeEspera = new ArrayList<>(); 
