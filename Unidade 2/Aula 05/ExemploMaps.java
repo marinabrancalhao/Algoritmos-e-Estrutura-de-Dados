@@ -1,0 +1,62 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class ExemploMaps {
+    public static void main(String[] args) {
+        
+        Map<String, Integer> mapa = new HashMap<>();
+
+        //adiciona no mapa a chave e o valor(K, V)
+        mapa.put("Leo", 30);
+        mapa.put("Alice", 18);
+        mapa.put("João", 56);
+        mapa.put("Clara", 14);
+
+        System.out.println(mapa);
+
+        //retorna o valor da chave passada
+        System.err.println(mapa.get("Leo"));
+
+        //substitui o valor d chave passada, se não encontrar, nada acontece
+        mapa.replace("João", 78);
+        System.out.println(mapa);
+
+        //adiciona no mapa caso a chave não exista
+        mapa.putIfAbsent("Joana", 90);
+        System.out.println(mapa);
+
+        //remove do mapa a chave passada
+        mapa.remove("Clara");
+        System.out.println(mapa);
+
+        //busca no mapa pela chave
+        if (mapa.containsKey("Leo")) {
+            System.out.println("Existe a chave passada");
+        } else{
+            System.out.println("Não existe a chave passada");
+        }
+
+        //busca no mapa pelo valor
+        if (mapa.containsKey(1)) {
+            System.out.println("Existe a chave passada");
+        } else{
+            System.out.println("Não existe a chave passada");
+        }
+
+        //retorna true or false em relação ao mapa
+        if (mapa.isEmpty()) {
+            System.out.println("O mapa está vazio");
+        }
+
+        //laço para verificar todo o mapa
+        for (String nome : mapa.keySet()) {
+            System.out.println(nome);
+        }
+
+        //exibe o tamanho do mapa
+        int tamanho = mapa.size();
+        System.out.println("O tamanho do mapa é: " + tamanho);
+
+
+    }
+}
