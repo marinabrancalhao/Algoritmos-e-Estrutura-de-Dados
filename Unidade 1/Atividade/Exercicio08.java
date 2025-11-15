@@ -7,7 +7,7 @@ Crie um programa que solicite uma lista de números (representando o código dos
 
 import java.util.Scanner;
 
-public class Exercicio8 {
+public class Exercicio08 {
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
