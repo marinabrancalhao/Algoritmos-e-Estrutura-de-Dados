@@ -15,7 +15,6 @@ public class Exercicio06 {
         int opcaoDesejada;
         Queue<String> filaDeEspera = new LinkedList<>();
         
-
         do{
             System.out.println("\n== Fila de Espera ==");
             System.out.println("1. Adicionar Paciente");
@@ -60,6 +59,5 @@ public class Exercicio06 {
         }while(opcaoDesejada != 0);
 
         scanner.close();
-        
     }
 }
