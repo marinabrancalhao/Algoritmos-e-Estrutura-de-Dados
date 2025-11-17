@@ -15,7 +15,7 @@ public class ExemploMaps {
         System.out.println(mapa);
 
         //retorna o valor da chave passada
-        System.err.println(mapa.get("Leo"));
+        System.out.println(mapa.get("Leo"));
 
         //substitui o valor d chave passada, se não encontrar, nada acontece
         mapa.replace("João", 78);
