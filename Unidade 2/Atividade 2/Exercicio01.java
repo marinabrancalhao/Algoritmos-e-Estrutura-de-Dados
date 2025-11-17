@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Exercicio01 {
 
-    public static void inverterLista(ArrayList<String> tarefasDoDia){
+    public static ArrayList<String> inverterLista(ArrayList<String> tarefasDoDia){
         
         ArrayList<String> listaInvertida = new ArrayList<>();
        
@@ -16,10 +16,8 @@ public class Exercicio01 {
             listaInvertida.add(tarefasDoDia.get(i));
         }
 
-        System.out.println("\n-- Tarefas do Dia | Ordem Decrescente--");
-        for (String tarefa : listaInvertida) {
-            System.out.println(tarefa);
-        }
+        return listaInvertida;
+
     }
     public static void main(String[] args) {
 
@@ -36,6 +34,10 @@ public class Exercicio01 {
             System.out.println(tarefa);
         }
 
-        inverterLista(tarefasDoDia);
+        ArrayList<String> tarefasInvertidas = inverterLista(tarefasDoDia);
+        System.out.println("\n-- Tarefas do Dia | Ordem Decrescente--");
+        for (String tarefa : tarefasInvertidas) {
+            System.out.println(tarefa);
+        }
     }
 }
