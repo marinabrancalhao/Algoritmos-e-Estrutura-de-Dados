@@ -1,7 +1,7 @@
 /*
-DFS em Grafos:
-Continuando no seu aplicativo de navegação, escreva um método para realizar a Busca em Profundidade (DFS) em um grafo.
-Esse método deve exibir todos os vértices visitados, permitindo que os usuários visualizem as possíveis rotas de maneira mais detalhada. 
+Mínimo de uma BST:
+Imagine que você está analisando uma árvore binária de busca para identificar o produto mais barato de uma lista.
+Escreva um método que encontre o menor valor em uma árvore binária de busca, ajudando a determinar a melhor oferta disponível.
 */
 
 public class Exercicio08 {
