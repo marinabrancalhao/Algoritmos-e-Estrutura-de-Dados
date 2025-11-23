@@ -152,7 +152,7 @@ public class Pizzaria {
 
             System.out.println("\nPedido realizado com sucesso!");
             System.out.printf("\nValor dos produtos: R$ %.2f%n", pedido.getValorTotal());
-            System.out.println("Número do pedido: " + pedido.getId());
+            System.out.println("Número do pedido: " + pedido.getId()); //implementação mostrar id
 
             System.out.println("\n--- CÁCULO DE FRETE ---");
             System.out.print("Qual a distância da entrega (em KM)? ");
@@ -162,7 +162,7 @@ public class Pizzaria {
 
             pedido.setDistanciaEntrega(distancia);
 
-            double valorFrete = calcularFrete(distancia, pizzas.size());
+            double valorFrete = calcularFrete(distancia);
             System.out.printf("\nCusto do Frete: R$ %.2f%n", valorFrete);
             System.out.printf("Valor total com frete: R$ %.2f%n", (pedido.getValorTotal() + valorFrete));
         }
@@ -176,16 +176,15 @@ public class Pizzaria {
         return valorTotal;
     }
 
-    private static double calcularFrete(double distanciaKm, int quantidadePizzas){
+    private static double calcularFrete(double distanciaKm){ //implementação frete
         double taxaPorKm = 2.00;
-        double taxaPorPizza = 1.00;
 
-        double valorFrete = (distanciaKm * taxaPorKm) + (quantidadePizzas * taxaPorPizza);
+        double valorFrete = (distanciaKm * taxaPorKm);
 
         return valorFrete;
     }
 
-    private static void alterarPedido(Scanner scanner, List<Pedido> listaPedidos){
+    private static void alterarPedido(Scanner scanner, List<Pedido> listaPedidos){ //implementação opção alterar pedido
 
         System.out.println("\n--- Alterar Pedido ---");
 
@@ -308,14 +307,7 @@ public class Pizzaria {
             System.out.println("\nSabor alterado para: " + novosSabores);
             System.out.println("Novo preço desta pizza: R$ " + novoPreco);
 
-            double novoTotalPedido = 0;
-            for (Pizza p : pedidoEncontrado.getPizzas()) {
-                novoTotalPedido += p.getPreco();
-            }
-
-            pedidoEncontrado.setValorTotal(novoTotalPedido);
-
-            System.out.printf("Valor total atualizado: R$%.2f%n", novoTotalPedido);
+            System.out.printf("Valor dos produtos atualizado: R$%.2f%n", novoPreco);
         }
     }
 
@@ -354,13 +346,6 @@ public class Pizzaria {
 
             System.out.printf("\nValor dos produtos atualizado: R$%.2f%n", novoTotalPedido);
 
-            double distancia = pedidoEncontrado.getDistanciaEntrega();
-            int quantidadePizzas = pedidoEncontrado.getPizzas().size();
-
-            double novoFrete = calcularFrete(distancia, quantidadePizzas);
-
-            System.out.printf("Novo Frete: R$ %.2f%n", novoFrete);
-            System.out.printf("Valor total com frete atualizado: R$ %.2f%n", (novoTotalPedido + novoFrete));
         }
     }
 
@@ -422,13 +407,6 @@ public class Pizzaria {
 
         System.out.printf("\nValor dos produtos atualizado: R$%.2f%n", novoTotalPedido);
 
-        double distancia = pedidoEncontrado.getDistanciaEntrega();
-        int quantidadePizzas = pedidoEncontrado.getPizzas().size();
-
-        double novoFrete = calcularFrete(distancia, quantidadePizzas);
-
-        System.out.printf("Novo Frete: R$ %.2f%n", novoFrete);
-        System.out.printf("Valor total com frete atualizado: R$ %.2f%n", (novoTotalPedido + novoFrete));
     }
     
 
@@ -452,7 +430,7 @@ public class Pizzaria {
         return cliente;
     }
 
-    private static void gerarRelatorio(List<Pedido> listaPedidos){
+    private static void gerarRelatorio(List<Pedido> listaPedidos){ //implemetação opcçao relatório
         
         System.out.println("\n--- Relatório de Vendas ---\n");
 
@@ -492,14 +470,19 @@ public class Pizzaria {
             
         }
 
-        System.out.printf("\nFaturamento Total: R$%.2f%n", faturamentoTotal);
+        System.out.printf("Faturamento Total: R$%.2f%n", faturamentoTotal);
         System.out.println("Total de Pedidos: " + listaPedidos.size());
-        System.out.println("\n------------------- Ranking Sabores Mais Pedidos -------------------");
+        System.out.println("\n------------------- Ranking Sabores Mais Pedidos -------------------\n");
         for (String sabor : ranking.keySet()) {
-            System.out.println("-> " + sabor + ": " + ranking.get(sabor) + " vezes");
+            if (ranking.get(sabor) == 1) {
+               System.out.println("-> " + sabor + ": " + ranking.get(sabor) + " vez"); 
+            } else {
+                System.out.println("-> " + sabor + ": " + ranking.get(sabor) + " vezes");
+            }
+            
         }
 
-        grafo.imprimirGrafo();
+        grafo.imprimirGrafo(); //implementação classe grafo
     }
 
 

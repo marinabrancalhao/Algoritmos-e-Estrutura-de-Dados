@@ -37,18 +37,21 @@ public class GrafoSabores {
 
     public void imprimirGrafo() {
         
-        System.out.println("\n-------------- Combinação de Sabores --------------");
+        System.out.println("\n----------------------- Combinação de Sabores -----------------------");
 
         if (adjacencias.isEmpty()) {
             System.out.println("\nNenhuma combinação registrada...");            
         } else {
 
             for (String sabor : adjacencias.keySet()) {
-                System.out.println("\nQuem pede " + sabor + " também pede: " + adjacencias.get(sabor));
+                System.out.print("\nQuem pede " + sabor + " também pede: " + adjacencias.get(sabor));
             }
         }
 
-        System.out.println("--------------------------------------------------");
+        System.out.println();
+        System.out.println("\n---------------------------------------------------------------------\n");
+
+        
     }
 
 }

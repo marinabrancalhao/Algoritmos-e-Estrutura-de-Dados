@@ -52,7 +52,7 @@ public class Pizza {
         this.tamanho = tamanho;
     }
 
-    public static double ajustarPrecoTamanho(List<String> sabores, TamanhoPizza tamanho){
+    public static double ajustarPrecoTamanho(List<String> sabores, TamanhoPizza tamanho){ //implementação
 
         Cardapio cardapio = new Cardapio();
 
