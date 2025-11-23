@@ -1,7 +1,9 @@
 package Projeto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import Projeto.Pizza.TamanhoPizza;
 
@@ -46,7 +48,7 @@ public class Pizzaria {
 
                 case 4:
 
-                    gerarRelatorio();
+                    gerarRelatorio(listaPedidos);
                     break;
 
                 case 5:
@@ -450,9 +452,57 @@ public class Pizzaria {
         return cliente;
     }
 
-    private static void gerarRelatorio(){
+    private static void gerarRelatorio(List<Pedido> listaPedidos){
         
+        System.out.println("\n--- Relatório de Vendas ---\n");
+
+        if (listaPedidos.isEmpty()) {
+            System.out.println("Nenhum pedido realizado ainda...");
+            return;
+        }
+
+        double faturamentoTotal = 0;
+        Map<String, Integer> ranking = new HashMap<>();
+        GrafoSabores grafo = new GrafoSabores();
+
+        for (Pedido pedido : listaPedidos) {
+
+            faturamentoTotal += pedido.getValorTotal();
+
+            for (Pizza pizza : pedido.getPizzas()) {
+                
+                List<String> sabores = pizza.getSabores();
+
+                for (String sabor : sabores) {
+                    
+                    if (ranking.containsKey(sabor)) {
+                        int quantidadeAtual = ranking.get(sabor);
+                        ranking.put(sabor, quantidadeAtual + 1);
+                    } else {
+                        ranking.put(sabor, 1);
+                    }
+                }
+
+                if (sabores.size() > 1) {
+                    for (int i = 0; i < sabores.size() - 1; i++) {
+                        grafo.adicionarAresta(sabores.get(i), sabores.get(i + 1));
+                    }
+                }
+            }
+            
+        }
+
+        System.out.printf("\nFaturamento Total: R$%.2f%n", faturamentoTotal);
+        System.out.println("Total de Pedidos: " + listaPedidos.size());
+        System.out.println("\n------------------- Ranking Sabores Mais Pedidos -------------------");
+        for (String sabor : ranking.keySet()) {
+            System.out.println("-> " + sabor + ": " + ranking.get(sabor) + " vezes");
+        }
+
+        grafo.imprimirGrafo();
     }
+
+
 
     private static void gerarListaClientes(List<Cliente> listaClientes){
         int x = 1;
