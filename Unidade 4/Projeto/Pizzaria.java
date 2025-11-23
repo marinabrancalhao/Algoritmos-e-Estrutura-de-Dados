@@ -149,8 +149,20 @@ public class Pizzaria {
             listaPedidos.add(pedido);
 
             System.out.println("\nPedido realizado com sucesso!");
-            System.out.printf("Valor total: R$ %.2f%n", pedido.getValorTotal());
+            System.out.printf("\nValor dos produtos: R$ %.2f%n", pedido.getValorTotal());
             System.out.println("Número do pedido: " + pedido.getId());
+
+            System.out.println("\n--- CÁCULO DE FRETE ---");
+            System.out.print("Qual a distância da entrega (em KM)? ");
+
+            double distancia = scanner.nextDouble();
+            scanner.nextLine();
+
+            pedido.setDistanciaEntrega(distancia);
+
+            double valorFrete = calcularFrete(distancia, pizzas.size());
+            System.out.printf("\nCusto do Frete: R$ %.2f%n", valorFrete);
+            System.out.printf("Valor total com frete: R$ %.2f%n", (pedido.getValorTotal() + valorFrete));
         }
     }
 
@@ -160,6 +172,15 @@ public class Pizzaria {
             valorTotal += pizza.getPreco();
         }
         return valorTotal;
+    }
+
+    private static double calcularFrete(double distanciaKm, int quantidadePizzas){
+        double taxaPorKm = 2.00;
+        double taxaPorPizza = 1.00;
+
+        double valorFrete = (distanciaKm * taxaPorKm) + (quantidadePizzas * taxaPorPizza);
+
+        return valorFrete;
     }
 
     private static void alterarPedido(Scanner scanner, List<Pedido> listaPedidos){
@@ -329,7 +350,15 @@ public class Pizzaria {
 
             pedidoEncontrado.setValorTotal(novoTotalPedido);
 
-            System.out.printf("\nValor total atualizado: R$%.2f%n", novoTotalPedido);
+            System.out.printf("\nValor dos produtos atualizado: R$%.2f%n", novoTotalPedido);
+
+            double distancia = pedidoEncontrado.getDistanciaEntrega();
+            int quantidadePizzas = pedidoEncontrado.getPizzas().size();
+
+            double novoFrete = calcularFrete(distancia, quantidadePizzas);
+
+            System.out.printf("Novo Frete: R$ %.2f%n", novoFrete);
+            System.out.printf("Valor total com frete atualizado: R$ %.2f%n", (novoTotalPedido + novoFrete));
         }
     }
 
@@ -389,7 +418,15 @@ public class Pizzaria {
         
         pedidoEncontrado.setValorTotal(novoTotalPedido);
 
-        System.out.printf("Valor total atualizado: R$%.2f%n", novoTotalPedido);
+        System.out.printf("\nValor dos produtos atualizado: R$%.2f%n", novoTotalPedido);
+
+        double distancia = pedidoEncontrado.getDistanciaEntrega();
+        int quantidadePizzas = pedidoEncontrado.getPizzas().size();
+
+        double novoFrete = calcularFrete(distancia, quantidadePizzas);
+
+        System.out.printf("Novo Frete: R$ %.2f%n", novoFrete);
+        System.out.printf("Valor total com frete atualizado: R$ %.2f%n", (novoTotalPedido + novoFrete));
     }
     
 

@@ -7,6 +7,7 @@ public class Pedido {
     private Cliente cliente;
     private List<Pizza> pizzas;
     private double valorTotal;
+    private double distanciaEntrega;
 
     public Pedido(int id, Cliente cliente, List<Pizza> pizzas, double valorTotal){
         this.id = id;
@@ -31,7 +32,15 @@ public class Pedido {
         return valorTotal;
     }
 
+    public double getDistanciaEntrega() {
+        return distanciaEntrega;
+    }
+
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public void setDistanciaEntrega(double distanciaEntrega) {
+        this.distanciaEntrega = distanciaEntrega;
     }
 }
