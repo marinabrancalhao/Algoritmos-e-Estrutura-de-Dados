@@ -134,7 +134,7 @@ public class Pizzaria {
                 pizzas.add(pizza);
 
                 System.out.println("\nPizza cadastrada com sucesso!");
-                System.out.println("Deseja cadastrar mais uma pizza no pedido? ");
+                System.out.println("\nDeseja cadastrar mais uma pizza no pedido? ");
                 System.out.println("1 - Sim | 2 - Não ");
                 System.out.print("\nOpção: ");
                 int opcao = scanner.nextInt();
@@ -433,7 +433,4 @@ public class Pizzaria {
             }
         }
     }
-
-
-
 }
