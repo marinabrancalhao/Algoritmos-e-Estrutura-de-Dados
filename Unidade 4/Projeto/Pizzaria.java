@@ -428,7 +428,7 @@ public class Pizzaria {
         return cliente;
     }
 
-    private static void gerarRelatorio(List<Pedido> listaPedidos){ //implemetação opcçao relatório
+    private static void gerarRelatorio(List<Pedido> listaPedidos){ //implementação opção relatório
         
         System.out.println("\n--- Relatório de Vendas ---\n");
 
