@@ -273,7 +273,7 @@ public class Pizzaria {
             Pizza pizza = pedidoEncontrado.getPizzas().get(pizzaSelecionada);
 
             int quantidadeSabores = 0;
-            while (quantidadeSabores < 1 || quantidadeSabores >= 4) {
+            while (quantidadeSabores < 1 || quantidadeSabores > 4) {
                 System.out.print("\nQuantos sabores a pizza terá agora (1 - 4)? ");
                 quantidadeSabores = scanner.nextInt();
                 scanner.nextLine();
@@ -305,8 +305,6 @@ public class Pizzaria {
             pizza.setPreco(novoPreco);
 
             System.out.println("\nSabor alterado para: " + novosSabores);
-            System.out.println("Novo preço desta pizza: R$ " + novoPreco);
-
             System.out.printf("Valor dos produtos atualizado: R$%.2f%n", novoPreco);
         }
     }
